@@ -198,7 +198,7 @@ const Signup = () => {
                                 className="submit-button"
                                 size="medium"
                             >
-                                Create Account
+                                Create Vault
                             </Button>
                         </Box>
                         
