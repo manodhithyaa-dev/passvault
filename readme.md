@@ -151,10 +151,24 @@ src/
 
 ## 👨‍💻 Author
 
-**Mano**  
-Web Developer | Full‑Stack | Security‑Focused Apps
-**Snigdha**
-Web Developer | React Js
+## 👨‍💻👩‍💻 Authors
+
+### **Mano**
+**Web Developer | Full-Stack | Security-Focused Apps**
+
+- Full-stack web developer with a focus on secure, scalable applications  
+- Experience in React, Node.js, databases, and system design  
+- Passionate about building privacy-first and performance-driven products  
+
+---
+
+### **Snigdha**
+**Web Developer | React.js**
+
+- Frontend developer specializing in React.js  
+- Focused on clean UI, responsive design, and user experience  
+- Interested in building modern, accessible web applications  
+
 ---
 
 ## 📄 License
