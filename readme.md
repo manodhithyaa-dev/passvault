@@ -74,7 +74,7 @@ npm -v
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/passvault.git
+git clone https://github.com/manodhithyaa-dev/passvault.git
 cd passvault/frontend
 ```
 
