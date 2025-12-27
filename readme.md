@@ -149,8 +149,6 @@ src/
 
 ---
 
-## 👨‍💻 Author
-
 ## 👨‍💻👩‍💻 Authors
 
 ### **Manodhithyaa**
