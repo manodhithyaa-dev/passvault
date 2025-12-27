@@ -20,10 +20,12 @@ import {
 } from '@mui/icons-material'
 import "./login.css"
 
-const Login = () => {
+const Signup = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const [openSnack, setOpenSnack] = useState(false)
     const [snackMessage, setSnackMessage] = useState('')
     const [snackSeverity, setSnackSeverity] = useState('success')
@@ -31,42 +33,54 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('Login attempt:', { email, password })
+        console.log('Signup attempt:', { email, password, confirmPassword })
 
-        const storedEmail = localStorage.getItem("email") || "admin@passvault.com"
-        const storedPassword = localStorage.getItem("password") || "admin@123"
-
-        if (email === storedEmail && password === storedPassword) {
-            setSnackMessage('Login successful! Redirecting...')
-            setSnackSeverity('success')
-            setOpenSnack(true)
-            
-            setTimeout(() => {
-                navigate('/dashboard')
-            }, 1500)
-        } else {
-            setSnackMessage('Invalid email or password')
+        // Validation
+        if (!email || !password || !confirmPassword) {
+            setSnackMessage('Please fill all fields')
             setSnackSeverity('error')
             setOpenSnack(true)
+            return
         }
-    }
 
-    const handleSignupClick = () => {
-        navigate('/signup')
-    }
-
-    const handleForgotPassword = () => {
-        // Reset password functionality
-        if (email) {
-            localStorage.removeItem("password")
-            setSnackMessage('Password reset instructions sent to your email. Please login with new password.')
-            setSnackSeverity('success')
+        if (password !== confirmPassword) {
+            setSnackMessage('Passwords do not match')
+            setSnackSeverity('error')
             setOpenSnack(true)
-        } else {
-            setSnackMessage('Please enter your email first')
+            return
+        }
+
+        if (password.length < 6) {
+            setSnackMessage('Password must be at least 6 characters')
+            setSnackSeverity('error')
+            setOpenSnack(true)
+            return
+        }
+
+        // Check if credentials already exist
+        const storedEmail = localStorage.getItem("email")
+        if (storedEmail) {
+            setSnackMessage('Account already exists. Please login.')
             setSnackSeverity('warning')
             setOpenSnack(true)
+            return
         }
+
+        // Save credentials and redirect
+        localStorage.setItem("email", email)
+        localStorage.setItem("password", password)
+        
+        setSnackMessage('Account created successfully! Redirecting to login...')
+        setSnackSeverity('success')
+        setOpenSnack(true)
+        
+        setTimeout(() => {
+            navigate('/login')
+        }, 1500)
+    }
+
+    const handleLoginClick = () => {
+        navigate('/login')
     }
 
     const handleCloseSnack = () => {
@@ -75,6 +89,10 @@ const Login = () => {
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword)
+    }
+
+    const toggleConfirmPasswordVisibility = () => {
+        setShowConfirmPassword(!showConfirmPassword)
     }
 
     return (
@@ -89,7 +107,7 @@ const Login = () => {
                                     Create Your Vault
                                 </Typography>
                                 <Typography variant="body2" className="header-subtitle">
-                                    Set up a strong master password
+                                    Set up your master password
                                 </Typography>
                             </Box>
                         </Box>
@@ -143,25 +161,36 @@ const Login = () => {
                                     ),
                                 }}
                             />
-                            {/* <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 1 }}>
-                                <Link 
-                                    component="button" 
-                                    variant="body2" 
-                                    onClick={handleForgotPassword}
-                                    sx={{ 
-                                        color: '#eb479a',
-                                        textDecoration: 'none',
-                                        fontSize: '0.85rem',
-                                        // '&:hover': {
-                                        //     textDecoration: 'underline',
-                                        //     color: '#4f8dfc'
-                                        // }
-                                    }}
-                                >
-                                    <br />
-                                    Forgot Password?
-                                </Link>
-                            </Box> */}
+                            <TextField
+                                autoComplete="OFF"
+                                fullWidth
+                                label="Confirm Password"
+                                type={showConfirmPassword ? "text" : "password"}
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                className="form-input"
+                                margin="normal"
+                                required
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <LockIcon className="input-icon" />
+                                        </InputAdornment>
+                                    ),
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label="toggle confirm password visibility"
+                                                onClick={toggleConfirmPasswordVisibility}
+                                                edge="end"
+                                                className="password-toggle"
+                                            >
+                                                {showConfirmPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    ),
+                                }}
+                            />
                             <Button
                                 type="submit"
                                 fullWidth
@@ -169,7 +198,7 @@ const Login = () => {
                                 className="submit-button"
                                 size="medium"
                             >
-                                Vault Login
+                                Create Account
                             </Button>
                         </Box>
                         
@@ -180,11 +209,11 @@ const Login = () => {
                             </Typography>
                             <Box sx={{ mt: 2, textAlign: 'center' }}>
                                 <Typography variant="body2" className="security-note">
-                                    Don't have an account?{' '}
+                                    Already have an account?{' '}
                                     <Link 
                                         component="button" 
                                         variant="body2" 
-                                        onClick={handleSignupClick}
+                                        onClick={handleLoginClick}
                                         sx={{ 
                                             color: '#eb479a',
                                             textDecoration: 'none',
@@ -194,7 +223,7 @@ const Login = () => {
                                             // }
                                         }}
                                     >
-                                        Sign up here
+                                        Sign in here
                                     </Link>
                                 </Typography>
                             </Box>
@@ -227,4 +256,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Signup

@@ -1,6 +1,7 @@
 // App.tsx
 import { useEffect, useState } from "react"
 import Login from "./pages/Login"
+import Signup from "./pages/Signup"
 import { Routes, Route } from 'react-router-dom'
 import "./App.css"
 
@@ -34,6 +35,8 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
       <Route path="/dashboard" element={<div>Dashboard Page</div>} />
     </Routes>
   )
