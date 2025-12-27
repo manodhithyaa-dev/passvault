@@ -153,7 +153,7 @@ src/
 
 ## 👨‍💻👩‍💻 Authors
 
-### **Mano**
+### **Manodhithyaa**
 **Web Developer | Full-Stack | Security-Focused Apps**
 
 - Full-stack web developer with a focus on secure, scalable applications  
