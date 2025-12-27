@@ -1,0 +1,214 @@
+body {
+    background-color: #0c111c;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.login-container > * {
+    width: 100%;
+    max-width: 420px;
+}
+
+.form-group {
+    min-width: 280px;
+    max-width: 420px;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #0c111c;
+    position: relative;
+    box-shadow:
+      0 0 0 1px rgba(175, 96, 232, 0.8),
+      0 12px 32px rgba(0, 0, 0, 0.8),
+      0 0 30px rgba(175, 96, 232, 0.6);
+    margin: 0 auto;
+}
+
+.form-group::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #644191, #eb479a, #4f8dfc);
+    z-index: -1;
+    filter: blur(3px);
+}
+
+.form-header,
+.form-footer,
+.form-info {
+    position: relative;
+    z-index: 1;
+}
+
+.form-header {
+    height: 220px;
+    position: relative;
+    background: linear-gradient(135deg, #644191 0%, #eb479a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    text-align: center;
+    color: #ffffff;
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+.logo {
+    padding: 0.75rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 auto 0.75rem auto !important;
+    display: block;
+    width: fit-content;
+}
+
+.header-title {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 0.25rem 0 !important;
+    color: #fff !important;
+    width: 100%;
+}
+
+.header-subtitle {
+    color: rgba(255, 255, 255, 0.8) !important;
+    margin: 0 !important;
+    width: 100%;
+}
+
+.form-footer {
+    color: #ffffff;
+    padding: 1.5rem;
+    background-color: #0c111c;
+}
+
+/* Clean TextField styling */
+.form-input {
+    .MuiOutlinedInput-root {
+        border-radius: 14px !important;
+        background-color: #080c16 !important;
+        color: #ffffff !important;
+        
+        .MuiInputAdornment-root {
+            margin-right: 8px;
+        }
+        
+        &:hover {
+            background-color: #0f1422 !important;
+        }
+        
+        &.Mui-focused {
+            background-color: #080c16 !important;
+            box-shadow: none !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        fieldset {
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            border-width: 1px !important;
+        }
+        
+        &.Mui-focused fieldset {
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            border-width: 1px !important;
+        }
+    }
+  
+    .input-icon {
+        color: rgba(255, 255, 255, 0.6) !important;
+        font-size: 1.25rem !important;
+    }
+  
+    .MuiInputLabel-root {
+        color: rgba(255, 255, 255, 0.7) !important;
+        font-weight: 500 !important;
+    }
+    
+    .MuiInputLabel-root.Mui-focused {
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
+    
+    .MuiInputBase-input {
+        color: #ffffff !important;
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+    }
+}
+
+/* Password toggle button styling */
+.password-toggle {
+    color: rgba(255, 255, 255, 0.6) !important;
+    padding: 4px !important;
+    
+    &:hover {
+        color: rgba(255, 255, 255, 0.9) !important;
+        background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+}
+
+.submit-button {
+    background: linear-gradient(135deg, #644191 0%, #eb479a 100%) !important;
+    border-radius: 14px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    padding: 10px 20px !important;
+    margin-top: 0.75rem !important;
+    
+    &:hover {
+        background: linear-gradient(135deg, #5a3b9a 0%, #d93f8b 100%) !important;
+        box-shadow: 0 6px 20px rgba(100, 65, 145, 0.4) !important;
+    }
+}
+
+.form-info {
+    padding: 0 1.5rem 1.5rem;
+    background-color: #0c111c;
+    color: #ffffff;
+    text-align: center;
+}
+
+.security-note {
+    color: #6c757d !important;
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #FFFFFF;
+    margin-top: -0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 0.5rem;
+    }
+    
+    .form-group {
+        min-width: 260px;
+        margin: 0 auto;
+    }
+    
+    .form-header {
+        height: 200px;
+    }
+    
+    .header-title {
+        font-size: 1.25rem !important;
+    }
+}
