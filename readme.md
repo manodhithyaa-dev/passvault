@@ -36,8 +36,6 @@ src/
 ├── assets/
 │   └── icon.png          # App logo / icon
 │
-├── components/           # Reusable UI components (future use)
-│
 ├── pages/
 │   ├── Login.tsx         # Login page
 │   └── login.css         # Login page styles

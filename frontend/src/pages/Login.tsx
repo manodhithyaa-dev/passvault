@@ -86,10 +86,10 @@ const Login = () => {
                             <Box className="header-content">
                                 <LockIcon className="logo" sx={{ fontSize: 60 }} />
                                 <Typography variant="h4" className="header-title">
-                                    Create Your Vault
+                                    Welcome back
                                 </Typography>
                                 <Typography variant="body2" className="header-subtitle">
-                                    Set up a strong master password
+                                    Sign in to access your secure vault
                                 </Typography>
                             </Box>
                         </Box>
