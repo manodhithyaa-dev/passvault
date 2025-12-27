@@ -153,7 +153,8 @@ src/
 
 **Mano**  
 Web Developer | Full‑Stack | Security‑Focused Apps
-
+**Snigdha**
+Web Developer | React Js
 ---
 
 ## 📄 License
