@@ -1,6 +1,7 @@
 // App.tsx
 import { useEffect, useState } from "react"
 import Login from "./pages/Login"
+import { Routes, Route } from 'react-router-dom'
 import "./App.css"
 
 const App = () => {
@@ -30,7 +31,12 @@ const App = () => {
     )
   }
 
-  return <Login />
+  return (
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/dashboard" element={<div>Dashboard Page</div>} />
+    </Routes>
+  )
 }
 
 export default App
